@@ -3,11 +3,17 @@ package org.ecroze;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class Main {
 
   public static class Solver {
+    private static final Pattern VALID_STRING = Pattern.compile("[0-1]*");
+
     public static boolean isSolvable(String s) {
+      if (!VALID_STRING.matcher(s).matches()) {
+        throw new IllegalArgumentException("String must contain characters 0 and 1 only");
+      }
       return false;
     }
   }
